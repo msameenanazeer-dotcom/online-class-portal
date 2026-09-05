@@ -1,0 +1,933 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Online Classes</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: linear-gradient(135deg, #243b80, #4568dc);
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 35px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #243b80;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    color: #4568dc;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: #666;
+}
+
+/* =========================
+   CLASS CARDS
+========================= */
+
+.classes {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+}
+
+.class-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.class-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15);
+}
+
+.class-icon {
+    font-size: 45px;
+}
+
+.subject {
+    display: inline-block;
+    background: #e8edff;
+    color: #243b80;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.class-card h3 {
+    font-size: 22px;
+    margin: 15px 0 10px;
+}
+
+.class-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* =========================
+   CLASS INFO
+========================= */
+
+.class-info {
+    margin: 20px 0;
+}
+
+.info-row {
+    margin: 8px 0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    flex: 1;
+    min-width: 120px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.live-btn {
+    background: #e53935;
+    color: white;
+}
+
+.live-btn:hover {
+    background: #c62828;
+}
+
+.notes-btn {
+    background: #243b80;
+    color: white;
+}
+
+.notes-btn:hover {
+    background: #16275f;
+}
+
+.record-btn {
+    background: #eeeeee;
+    color: #222;
+}
+
+.record-btn:hover {
+    background: #dddddd;
+}
+
+/* =========================
+   NOTES SECTION
+========================= */
+
+.notes-section {
+    margin-top: 70px;
+}
+
+.notes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+.note-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.08);
+}
+
+.note-card h3 {
+    margin-top: 0;
+}
+
+.note-card p {
+    color: #666;
+}
+
+.download-btn {
+    display: block;
+
+    text-align: center;
+
+    background: #198754;
+
+    color: white;
+
+    padding: 11px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    background: #146c43;
+}
+
+/* =========================
+   SCHEDULE
+========================= */
+
+.schedule {
+    margin-top: 70px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.08);
+}
+
+th,
+td {
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+
+    text-align: center;
+}
+
+th {
+    background: #243b80;
+    color: white;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 60px;
+
+    background: #243b80;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 8px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<h1>🎓 My Online Classes</h1>
+
+<p>
+Learn Anywhere • Attend Live Classes • Download Notes
+</p>
+
+</header>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<a href="#classes">Live Classes</a>
+
+<a href="#notes">Notes</a>
+
+<a href="#schedule">Schedule</a>
+
+</nav>
+
+
+<!-- =========================
+     LIVE CLASSES
+========================= -->
+
+<div class="container" id="classes">
+
+<div class="section-title">
+
+<h2>🎥 Live Classes</h2>
+
+<p>
+Click "Join Live Class" to attend the class from anywhere.
+</p>
+
+</div>
+
+
+<div class="classes">
+
+
+<!-- =========================
+     CLASS 1
+========================= -->
+
+<div class="class-card">
+
+<div class="class-icon">🤖</div>
+
+<span class="subject">
+AI
+</span>
+
+<h3>
+Artificial Intelligence
+</h3>
+
+<p>
+Learn AI concepts, search algorithms,
+knowledge representation and machine learning.
+</p>
+
+<div class="class-info">
+
+<div class="info-row">
+📅 Monday
+</div>
+
+<div class="info-row">
+⏰ 10:00 AM
+</div>
+
+<div class="info-row">
+👩‍🏫 Faculty: Dr. Sameena
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="https://meet.google.com/"
+target="_blank"
+class="btn live-btn">
+
+🔴 Join Live Class
+
+</a>
+
+<a
+href="notes/ai-notes.pdf"
+download
+class="btn notes-btn">
+
+📥 Notes
+
+</a>
+
+<a
+href="https://www.youtube.com/"
+target="_blank"
+class="btn record-btn">
+
+▶ Recorded
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CLASS 2
+========================= -->
+
+<div class="class-card">
+
+<div class="class-icon">💻</div>
+
+<span class="subject">
+NLP
+</span>
+
+<h3>
+Natural Language Processing
+</h3>
+
+<p>
+Learn text preprocessing, TF-IDF,
+sentiment analysis and language models.
+</p>
+
+<div class="class-info">
+
+<div class="info-row">
+📅 Tuesday
+</div>
+
+<div class="info-row">
+⏰ 11:00 AM
+</div>
+
+<div class="info-row">
+👩‍🏫 Faculty: Dr. Sameena
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="https://meet.google.com/"
+target="_blank"
+class="btn live-btn">
+
+🔴 Join Live Class
+
+</a>
+
+<a
+href="notes/nlp-notes.pdf"
+download
+class="btn notes-btn">
+
+📥 Notes
+
+</a>
+
+<a
+href="https://www.youtube.com/"
+target="_blank"
+class="btn record-btn">
+
+▶ Recorded
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CLASS 3
+========================= -->
+
+<div class="class-card">
+
+<div class="class-icon">🔬</div>
+
+<span class="subject">
+VLSI
+</span>
+
+<h3>
+VLSI Design
+</h3>
+
+<p>
+Learn digital VLSI design,
+floorplanning and optimization techniques.
+</p>
+
+<div class="class-info">
+
+<div class="info-row">
+📅 Wednesday
+</div>
+
+<div class="info-row">
+⏰ 2:00 PM
+</div>
+
+<div class="info-row">
+👩‍🏫 Faculty: Dr. Sameena
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="https://meet.google.com/"
+target="_blank"
+class="btn live-btn">
+
+🔴 Join Live Class
+
+</a>
+
+<a
+href="notes/vlsi-notes.pdf"
+download
+class="btn notes-btn">
+
+📥 Notes
+
+</a>
+
+<a
+href="https://www.youtube.com/"
+target="_blank"
+class="btn record-btn">
+
+▶ Recorded
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CLASS 4
+========================= -->
+
+<div class="class-card">
+
+<div class="class-icon">📡</div>
+
+<span class="subject">
+ECE
+</span>
+
+<h3>
+Digital Electronics
+</h3>
+
+<p>
+Learn digital circuits, logic gates,
+flip-flops, counters and registers.
+</p>
+
+<div class="class-info">
+
+<div class="info-row">
+📅 Thursday
+</div>
+
+<div class="info-row">
+⏰ 10:00 AM
+</div>
+
+<div class="info-row">
+👩‍🏫 Faculty: Dr. Sameena
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<a
+href="https://meet.google.com/"
+target="_blank"
+class="btn live-btn">
+
+🔴 Join Live Class
+
+</a>
+
+<a
+href="notes/digital-electronics.pdf"
+download
+class="btn notes-btn">
+
+📥 Notes
+
+</a>
+
+<a
+href="https://www.youtube.com/"
+target="_blank"
+class="btn record-btn">
+
+▶ Recorded
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     NOTES
+========================= -->
+
+<div class="container notes-section" id="notes">
+
+<div class="section-title">
+
+<h2>📚 Download Notes</h2>
+
+<p>
+Download lecture notes and study materials.
+</p>
+
+</div>
+
+
+<div class="notes-grid">
+
+
+<!-- NOTE 1 -->
+
+<div class="note-card">
+
+<h3>🤖 AI Unit 1</h3>
+
+<p>
+Introduction to Artificial Intelligence,
+agents and problem solving.
+</p>
+
+<a
+href="notes/ai-unit-1.pdf"
+download
+class="download-btn">
+
+📥 Download PDF
+
+</a>
+
+</div>
+
+
+<!-- NOTE 2 -->
+
+<div class="note-card">
+
+<h3>💻 NLP Unit 1</h3>
+
+<p>
+Introduction to NLP, text preprocessing
+and language processing.
+</p>
+
+<a
+href="notes/nlp-unit-1.pdf"
+download
+class="download-btn">
+
+📥 Download PDF
+
+</a>
+
+</div>
+
+
+<!-- NOTE 3 -->
+
+<div class="note-card">
+
+<h3>🔬 VLSI Unit 1</h3>
+
+<p>
+Introduction to VLSI design and
+floorplanning concepts.
+</p>
+
+<a
+href="notes/vlsi-unit-1.pdf"
+download
+class="download-btn">
+
+📥 Download PDF
+
+</a>
+
+</div>
+
+
+<!-- NOTE 4 -->
+
+<div class="note-card">
+
+<h3>📡 Digital Electronics</h3>
+
+<p>
+Logic gates, Boolean algebra,
+flip-flops and counters.
+</p>
+
+<a
+href="notes/digital-electronics.pdf"
+download
+class="download-btn">
+
+📥 Download PDF
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CLASS SCHEDULE
+========================= -->
+
+<div class="container schedule" id="schedule">
+
+<div class="section-title">
+
+<h2>📅 Class Schedule</h2>
+
+<p>
+Weekly online class timetable.
+</p>
+
+</div>
+
+
+<table>
+
+<tr>
+
+<th>Day</th>
+
+<th>Subject</th>
+
+<th>Time</th>
+
+<th>Class</th>
+
+</tr>
+
+
+<tr>
+
+<td>Monday</td>
+
+<td>Artificial Intelligence</td>
+
+<td>10:00 AM</td>
+
+<td>Live</td>
+
+</tr>
+
+
+<tr>
+
+<td>Tuesday</td>
+
+<td>NLP</td>
+
+<td>11:00 AM</td>
+
+<td>Live</td>
+
+</tr>
+
+
+<tr>
+
+<td>Wednesday</td>
+
+<td>VLSI</td>
+
+<td>2:00 PM</td>
+
+<td>Live</td>
+
+</tr>
+
+
+<tr>
+
+<td>Thursday</td>
+
+<td>Digital Electronics</td>
+
+<td>10:00 AM</td>
+
+<td>Live</td>
+
+</tr>
+
+
+</table>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<p>
+© 2026 My Online Classes
+</p>
+
+<p>
+Learn Anywhere • Learn Anytime
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
+```
