@@ -1,6 +1,7 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -10,171 +11,13 @@
 
 <style>
 
-/* =========================
-   GENERAL
-========================= */
-
 * {
     box-sizing: border-box;
 }
-```html
-<!-- =========================
-     DOWNLOAD NOTES
-========================= -->
 
-<section id="notes" style="padding:50px 20px; background:#f4f7fb;">
-
-    <h2 style="text-align:center; font-size:30px;">
-        📚 Download Class Notes
-    </h2>
-
-    <p style="text-align:center; color:#666;">
-        Download lecture notes and study materials
-    </p>
-
-    <div style="
-        max-width:1100px;
-        margin:30px auto;
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-        gap:20px;
-    ">
-
-        <!-- AI -->
-
-        <div style="
-            background:white;
-            padding:25px;
-            border-radius:15px;
-            box-shadow:0 5px 15px rgba(0,0,0,0.1);
-        ">
-
-            <h3>🤖 Artificial Intelligence</h3>
-
-            <p>AI Unit 1 – Introduction and Problem Solving</p>
-
-            <a href="notes/AI-Unit-1.pdf"
-               download
-               style="
-               display:block;
-               text-align:center;
-               padding:12px;
-               background:#198754;
-               color:white;
-               text-decoration:none;
-               border-radius:8px;
-               font-weight:bold;
-               ">
-
-                📥 Download AI Notes
-
-            </a>
-
-        </div>
-
-
-        <!-- NLP -->
-
-        <div style="
-            background:white;
-            padding:25px;
-            border-radius:15px;
-            box-shadow:0 5px 15px rgba(0,0,0,0.1);
-        ">
-
-            <h3>💻 Natural Language Processing</h3>
-
-            <p>NLP Unit 1 – Introduction and Text Processing</p>
-
-            <a href="notes/NLP-Unit-1.pdf"
-               download
-               style="
-               display:block;
-               text-align:center;
-               padding:12px;
-               background:#198754;
-               color:white;
-               text-decoration:none;
-               border-radius:8px;
-               font-weight:bold;
-               ">
-
-                📥 Download NLP Notes
-
-            </a>
-
-        </div>
-
-
-        <!-- VLSI -->
-
-        <div style="
-            background:white;
-            padding:25px;
-            border-radius:15px;
-            box-shadow:0 5px 15px rgba(0,0,0,0.1);
-        ">
-
-            <h3>🔬 VLSI</h3>
-
-            <p>VLSI Unit 1 – VLSI Design and Floorplanning</p>
-
-            <a href="notes/VLSI-Unit-1.pdf"
-               download
-               style="
-               display:block;
-               text-align:center;
-               padding:12px;
-               background:#198754;
-               color:white;
-               text-decoration:none;
-               border-radius:8px;
-               font-weight:bold;
-               ">
-
-                📥 Download VLSI Notes
-
-            </a>
-
-        </div>
-
-
-        <!-- DIGITAL ELECTRONICS -->
-
-        <div style="
-            background:white;
-            padding:25px;
-            border-radius:15px;
-            box-shadow:0 5px 15px rgba(0,0,0,0.1);
-        ">
-
-            <h3>📡 Digital Electronics</h3>
-
-            <p>Logic Gates, Flip-Flops, Counters and Registers</p>
-
-            <a href="notes/Digital-Electronics.pdf"
-               download
-               style="
-               display:block;
-               text-align:center;
-               padding:12px;
-               background:#198754;
-               color:white;
-               text-decoration:none;
-               border-radius:8px;
-               font-weight:bold;
-               ">
-
-                📥 Download Digital Electronics
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-```
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -190,18 +33,18 @@ body {
 header {
     background: linear-gradient(135deg, #243b80, #4568dc);
     color: white;
-    padding: 35px 20px;
+    padding: 40px 20px;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 35px;
+    font-size: 38px;
 }
 
 header p {
-    margin-top: 10px;
-    font-size: 17px;
+    margin-top: 12px;
+    font-size: 18px;
 }
 
 /* =========================
@@ -212,7 +55,8 @@ nav {
     background: white;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+
     position: sticky;
     top: 0;
     z-index: 100;
@@ -230,18 +74,18 @@ nav a:hover {
 }
 
 /* =========================
-   MAIN
+   CONTAINER
 ========================= */
 
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .section-title h2 {
@@ -259,9 +103,7 @@ nav a:hover {
 
 .classes {
     display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
 }
 
@@ -270,17 +112,14 @@ nav a:hover {
     border-radius: 18px;
     padding: 25px;
 
-    box-shadow:
-        0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 
     transition: 0.3s;
 }
 
 .class-card:hover {
     transform: translateY(-6px);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .class-icon {
@@ -289,12 +128,16 @@ nav a:hover {
 
 .subject {
     display: inline-block;
+
     background: #e8edff;
     color: #243b80;
+
     padding: 6px 12px;
     border-radius: 20px;
+
     font-size: 12px;
     font-weight: bold;
+
     margin-top: 10px;
 }
 
@@ -309,7 +152,7 @@ nav a:hover {
 }
 
 /* =========================
-   CLASS INFO
+   CLASS INFORMATION
 ========================= */
 
 .class-info {
@@ -317,7 +160,7 @@ nav a:hover {
 }
 
 .info-row {
-    margin: 8px 0;
+    margin: 10px 0;
 }
 
 /* =========================
@@ -332,6 +175,7 @@ nav a:hover {
 
 .btn {
     flex: 1;
+
     min-width: 120px;
 
     padding: 12px;
@@ -343,6 +187,8 @@ nav a:hover {
     text-decoration: none;
 
     font-weight: bold;
+
+    cursor: pointer;
 }
 
 .live-btn {
@@ -377,7 +223,7 @@ nav a:hover {
 ========================= */
 
 .notes-section {
-    margin-top: 70px;
+    background: #f4f7fb;
 }
 
 .notes-grid {
@@ -386,27 +232,42 @@ nav a:hover {
     grid-template-columns:
         repeat(auto-fit, minmax(250px, 1fr));
 
-    gap: 20px;
+    gap: 25px;
 }
 
 .note-card {
     background: white;
 
-    padding: 22px;
+    padding: 25px;
 
     border-radius: 15px;
 
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
 }
 
 .note-card h3 {
     margin-top: 0;
+
+    font-size: 21px;
 }
 
 .note-card p {
     color: #666;
+
+    line-height: 1.5;
+
+    min-height: 50px;
 }
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
 
 .download-btn {
     display: block;
@@ -417,17 +278,51 @@ nav a:hover {
 
     color: white;
 
-    padding: 11px;
+    padding: 13px;
 
-    border-radius: 8px;
+    border-radius: 9px;
 
     text-decoration: none;
 
     font-weight: bold;
+
+    margin-top: 15px;
+
+    transition: 0.3s;
 }
 
 .download-btn:hover {
     background: #146c43;
+
+    transform: scale(1.02);
+}
+
+/* =========================
+   VIEW PDF BUTTON
+========================= */
+
+.view-btn {
+    display: block;
+
+    text-align: center;
+
+    background: #4568dc;
+
+    color: white;
+
+    padding: 11px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+.view-btn:hover {
+    background: #243b80;
 }
 
 /* =========================
@@ -435,11 +330,12 @@ nav a:hover {
 ========================= */
 
 .schedule {
-    margin-top: 70px;
+    margin-top: 30px;
 }
 
-table {
+.schedule-table {
     width: 100%;
+
     border-collapse: collapse;
 
     background: white;
@@ -448,12 +344,11 @@ table {
 
     overflow: hidden;
 
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-th,
-td {
+.schedule-table th,
+.schedule-table td {
     padding: 15px;
 
     border-bottom: 1px solid #eee;
@@ -461,8 +356,9 @@ td {
     text-align: center;
 }
 
-th {
+.schedule-table th {
     background: #243b80;
+
     color: white;
 }
 
@@ -471,7 +367,7 @@ th {
 ========================= */
 
 footer {
-    margin-top: 60px;
+    margin-top: 50px;
 
     background: #243b80;
 
@@ -479,7 +375,7 @@ footer {
 
     text-align: center;
 
-    padding: 25px;
+    padding: 30px;
 }
 
 /* =========================
@@ -489,12 +385,13 @@ footer {
 @media(max-width:600px) {
 
     header h1 {
-        font-size: 27px;
+        font-size: 28px;
     }
 
     nav a {
         display: inline-block;
-        margin: 5px 8px;
+
+        margin: 6px 8px;
     }
 
     .buttons {
@@ -505,8 +402,13 @@ footer {
         width: 100%;
     }
 
-    table {
+    .schedule-table {
         font-size: 13px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 10px 5px;
     }
 
 }
@@ -515,9 +417,7 @@ footer {
 
 </head>
 
-
 <body>
-
 
 <!-- =========================
      HEADER
@@ -533,21 +433,19 @@ Learn Anywhere • Attend Live Classes • Download Notes
 
 </header>
 
-
 <!-- =========================
      NAVIGATION
 ========================= -->
 
 <nav>
 
-<a href="#classes">Live Classes</a>
+<a href="#classes">🎥 Live Classes</a>
 
-<a href="#notes">Notes</a>
+<a href="#notes">📚 Notes</a>
 
-<a href="#schedule">Schedule</a>
+<a href="#schedule">📅 Schedule</a>
 
 </nav>
-
 
 <!-- =========================
      LIVE CLASSES
@@ -560,30 +458,24 @@ Learn Anywhere • Attend Live Classes • Download Notes
 <h2>🎥 Live Classes</h2>
 
 <p>
-Click "Join Live Class" to attend the class from anywhere.
+Click "Join Live Class" to attend your class from anywhere.
 </p>
 
 </div>
 
-
 <div class="classes">
 
-
 <!-- =========================
-     CLASS 1
+     AI
 ========================= -->
 
 <div class="class-card">
 
 <div class="class-icon">🤖</div>
 
-<span class="subject">
-AI
-</span>
+<span class="subject">AI</span>
 
-<h3>
-Artificial Intelligence
-</h3>
+<h3>Artificial Intelligence</h3>
 
 <p>
 Learn AI concepts, search algorithms,
@@ -606,7 +498,6 @@ knowledge representation and machine learning.
 
 </div>
 
-
 <div class="buttons">
 
 <a
@@ -619,11 +510,11 @@ class="btn live-btn">
 </a>
 
 <a
-href="notes/ai-notes.pdf"
-download
+href="notes/ai-unit-1.pdf"
+download="AI-Unit-1.pdf"
 class="btn notes-btn">
 
-📥 Notes
+📥 Download Notes
 
 </a>
 
@@ -640,22 +531,17 @@ class="btn record-btn">
 
 </div>
 
-
 <!-- =========================
-     CLASS 2
+     NLP
 ========================= -->
 
 <div class="class-card">
 
 <div class="class-icon">💻</div>
 
-<span class="subject">
-NLP
-</span>
+<span class="subject">NLP</span>
 
-<h3>
-Natural Language Processing
-</h3>
+<h3>Natural Language Processing</h3>
 
 <p>
 Learn text preprocessing, TF-IDF,
@@ -678,7 +564,6 @@ sentiment analysis and language models.
 
 </div>
 
-
 <div class="buttons">
 
 <a
@@ -691,11 +576,11 @@ class="btn live-btn">
 </a>
 
 <a
-href="notes/nlp-notes.pdf"
-download
+href="notes/nlp-unit-1.pdf"
+download="NLP-Unit-1.pdf"
 class="btn notes-btn">
 
-📥 Notes
+📥 Download Notes
 
 </a>
 
@@ -712,22 +597,17 @@ class="btn record-btn">
 
 </div>
 
-
 <!-- =========================
-     CLASS 3
+     VLSI
 ========================= -->
 
 <div class="class-card">
 
 <div class="class-icon">🔬</div>
 
-<span class="subject">
-VLSI
-</span>
+<span class="subject">VLSI</span>
 
-<h3>
-VLSI Design
-</h3>
+<h3>VLSI Design</h3>
 
 <p>
 Learn digital VLSI design,
@@ -750,7 +630,6 @@ floorplanning and optimization techniques.
 
 </div>
 
-
 <div class="buttons">
 
 <a
@@ -763,11 +642,11 @@ class="btn live-btn">
 </a>
 
 <a
-href="notes/vlsi-notes.pdf"
-download
+href="notes/vlsi-unit-1.pdf"
+download="VLSI-Unit-1.pdf"
 class="btn notes-btn">
 
-📥 Notes
+📥 Download Notes
 
 </a>
 
@@ -784,22 +663,17 @@ class="btn record-btn">
 
 </div>
 
-
 <!-- =========================
-     CLASS 4
+     DIGITAL ELECTRONICS
 ========================= -->
 
 <div class="class-card">
 
 <div class="class-icon">📡</div>
 
-<span class="subject">
-ECE
-</span>
+<span class="subject">ECE</span>
 
-<h3>
-Digital Electronics
-</h3>
+<h3>Digital Electronics</h3>
 
 <p>
 Learn digital circuits, logic gates,
@@ -822,7 +696,6 @@ flip-flops, counters and registers.
 
 </div>
 
-
 <div class="buttons">
 
 <a
@@ -836,10 +709,10 @@ class="btn live-btn">
 
 <a
 href="notes/digital-electronics.pdf"
-download
+download="Digital-Electronics.pdf"
 class="btn notes-btn">
 
-📥 Notes
+📥 Download Notes
 
 </a>
 
@@ -856,33 +729,31 @@ class="btn record-btn">
 
 </div>
 
-
 </div>
 
 </div>
-
 
 <!-- =========================
-     NOTES
+     DOWNLOAD NOTES
 ========================= -->
 
 <div class="container notes-section" id="notes">
 
 <div class="section-title">
 
-<h2>📚 Download Notes</h2>
+<h2>📚 Download Class Notes</h2>
 
 <p>
-Download lecture notes and study materials.
+Students can view and download lecture notes and study materials.
 </p>
 
 </div>
 
-
 <div class="notes-grid">
 
-
-<!-- NOTE 1 -->
+<!-- =========================
+     AI NOTES
+========================= -->
 
 <div class="note-card">
 
@@ -895,17 +766,27 @@ agents and problem solving.
 
 <a
 href="notes/ai-unit-1.pdf"
-download
+download="AI-Unit-1.pdf"
 class="download-btn">
 
-📥 Download PDF
+📥 Download AI PDF
+
+</a>
+
+<a
+href="notes/ai-unit-1.pdf"
+target="_blank"
+class="view-btn">
+
+👁️ View PDF
 
 </a>
 
 </div>
 
-
-<!-- NOTE 2 -->
+<!-- =========================
+     NLP NOTES
+========================= -->
 
 <div class="note-card">
 
@@ -918,17 +799,27 @@ and language processing.
 
 <a
 href="notes/nlp-unit-1.pdf"
-download
+download="NLP-Unit-1.pdf"
 class="download-btn">
 
-📥 Download PDF
+📥 Download NLP PDF
+
+</a>
+
+<a
+href="notes/nlp-unit-1.pdf"
+target="_blank"
+class="view-btn">
+
+👁️ View PDF
 
 </a>
 
 </div>
 
-
-<!-- NOTE 3 -->
+<!-- =========================
+     VLSI NOTES
+========================= -->
 
 <div class="note-card">
 
@@ -941,17 +832,27 @@ floorplanning concepts.
 
 <a
 href="notes/vlsi-unit-1.pdf"
-download
+download="VLSI-Unit-1.pdf"
 class="download-btn">
 
-📥 Download PDF
+📥 Download VLSI PDF
+
+</a>
+
+<a
+href="notes/vlsi-unit-1.pdf"
+target="_blank"
+class="view-btn">
+
+👁️ View PDF
 
 </a>
 
 </div>
 
-
-<!-- NOTE 4 -->
+<!-- =========================
+     DIGITAL ELECTRONICS
+========================= -->
 
 <div class="note-card">
 
@@ -964,23 +865,30 @@ flip-flops and counters.
 
 <a
 href="notes/digital-electronics.pdf"
-download
+download="Digital-Electronics.pdf"
 class="download-btn">
 
-📥 Download PDF
+📥 Download Digital Electronics PDF
+
+</a>
+
+<a
+href="notes/digital-electronics.pdf"
+target="_blank"
+class="view-btn">
+
+👁️ View PDF
 
 </a>
 
 </div>
 
-
 </div>
 
 </div>
-
 
 <!-- =========================
-     CLASS SCHEDULE
+     SCHEDULE
 ========================= -->
 
 <div class="container schedule" id="schedule">
@@ -995,8 +903,7 @@ Weekly online class timetable.
 
 </div>
 
-
-<table>
+<table class="schedule-table">
 
 <tr>
 
@@ -1010,7 +917,6 @@ Weekly online class timetable.
 
 </tr>
 
-
 <tr>
 
 <td>Monday</td>
@@ -1019,10 +925,9 @@ Weekly online class timetable.
 
 <td>10:00 AM</td>
 
-<td>Live</td>
+<td>🔴 Live</td>
 
 </tr>
-
 
 <tr>
 
@@ -1032,10 +937,9 @@ Weekly online class timetable.
 
 <td>11:00 AM</td>
 
-<td>Live</td>
+<td>🔴 Live</td>
 
 </tr>
-
 
 <tr>
 
@@ -1045,10 +949,9 @@ Weekly online class timetable.
 
 <td>2:00 PM</td>
 
-<td>Live</td>
+<td>🔴 Live</td>
 
 </tr>
-
 
 <tr>
 
@@ -1058,15 +961,13 @@ Weekly online class timetable.
 
 <td>10:00 AM</td>
 
-<td>Live</td>
+<td>🔴 Live</td>
 
 </tr>
-
 
 </table>
 
 </div>
-
 
 <!-- =========================
      FOOTER
@@ -1084,8 +985,6 @@ Learn Anywhere • Learn Anytime
 
 </footer>
 
-
 </body>
 
 </html>
-```
