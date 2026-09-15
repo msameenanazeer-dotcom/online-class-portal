@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +9,8 @@
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
@@ -17,10 +18,14 @@
         }
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1020;
+            color: #f4f7ff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         /* =========================
@@ -28,20 +33,34 @@
         ========================= */
 
         header {
-            background: linear-gradient(135deg, #243b80, #4568dc);
-            color: white;
-            padding: 40px 20px;
+            background:
+                radial-gradient(circle at top left, rgba(77, 124, 255, 0.35), transparent 35%),
+                radial-gradient(circle at top right, rgba(168, 85, 247, 0.25), transparent 35%),
+                linear-gradient(135deg, #111936, #0b1020);
+            padding: 55px 20px 45px;
             text-align: center;
+            border-bottom: 1px solid #263152;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 38px;
+            font-size: 42px;
+            margin-bottom: 12px;
         }
 
         header p {
-            margin-top: 12px;
+            color: #b9c4e4;
             font-size: 18px;
+        }
+
+        .header-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            border: 1px solid #33456f;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.05);
+            color: #dce5ff;
+            font-size: 14px;
         }
 
         /* =========================
@@ -49,35 +68,39 @@
         ========================= */
 
         nav {
-            background: white;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            background: rgba(11, 16, 32, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #263152;
+            padding: 14px 10px;
+            text-align: center;
         }
 
         nav a {
-            text-decoration: none;
-            color: #243b80;
+            display: inline-block;
+            color: #dce5ff;
             font-weight: bold;
-            margin: 0 15px;
+            margin: 5px 12px;
+            padding: 8px 12px;
+            border-radius: 9px;
+            transition: 0.25s;
         }
 
         nav a:hover {
-            color: #4568dc;
+            background: #1b2748;
+            color: #8fb3ff;
         }
 
         /* =========================
-           CONTAINER
+           GENERAL
         ========================= */
 
         .container {
             max-width: 1200px;
             margin: auto;
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
 
         .section-title {
@@ -86,12 +109,12 @@
         }
 
         .section-title h2 {
-            font-size: 30px;
+            font-size: 31px;
             margin-bottom: 8px;
         }
 
         .section-title p {
-            color: #666;
+            color: #9eabc9;
         }
 
         /* =========================
@@ -100,42 +123,40 @@
 
         .classes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 24px;
         }
 
         .class-card {
-            background: white;
-            border-radius: 18px;
+            background: linear-gradient(145deg, #141c35, #10172c);
+            border: 1px solid #29375d;
+            border-radius: 20px;
             padding: 25px;
-
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
             transition: 0.3s;
         }
 
         .class-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: #4e73c9;
+            box-shadow: 0 18px 45px rgba(0,0,0,0.35);
         }
 
         .class-icon {
-            font-size: 45px;
+            font-size: 44px;
+            margin-bottom: 5px;
         }
 
         .subject {
             display: inline-block;
-
-            background: #e8edff;
-            color: #243b80;
-
-            padding: 6px 12px;
+            background: #1d2a4d;
+            color: #9fc0ff;
+            border: 1px solid #344a7d;
+            padding: 5px 11px;
             border-radius: 20px;
-
             font-size: 12px;
             font-weight: bold;
-
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .class-card h3 {
@@ -144,20 +165,16 @@
         }
 
         .class-card p {
-            color: #666;
-            line-height: 1.5;
+            color: #aab5d0;
         }
-
-        /* =========================
-           CLASS INFORMATION
-        ========================= */
 
         .class-info {
             margin: 20px 0;
         }
 
         .info-row {
-            margin: 10px 0;
+            margin: 9px 0;
+            color: #cbd5ee;
         }
 
         /* =========================
@@ -173,197 +190,202 @@
         .btn {
             flex: 1;
             min-width: 120px;
-
-            padding: 12px;
-
+            padding: 12px 10px;
             text-align: center;
-
             border-radius: 10px;
-
-            text-decoration: none;
-
             font-weight: bold;
+            color: white;
+            transition: 0.25s;
+            border: 1px solid transparent;
+        }
 
-            cursor: pointer;
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
         }
 
         .live-btn {
-            background: #e53935;
-            color: white;
-        }
-
-        .live-btn:hover {
-            background: #c62828;
+            background: #dc3545;
         }
 
         .notes-btn {
-            background: #243b80;
-            color: white;
-        }
-
-        .notes-btn:hover {
-            background: #16275f;
+            background: #3158b8;
         }
 
         .record-btn {
-            background: #eeeeee;
-            color: #222;
-        }
-
-        .record-btn:hover {
-            background: #dddddd;
+            background: #242d49;
+            border-color: #43537d;
         }
 
         /* =========================
-           NOTES SECTION
+           NOTES
         ========================= */
 
         .notes-section {
-            background: #f4f7fb;
+            background: #0e1529;
+            border-top: 1px solid #202c4b;
+            border-bottom: 1px solid #202c4b;
         }
 
         .notes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
         }
 
         .note-card {
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 15px;
-
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-
+            background: #141c35;
+            border: 1px solid #29375d;
+            padding: 23px;
+            border-radius: 17px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.22);
             transition: 0.3s;
         }
 
         .note-card:hover {
             transform: translateY(-5px);
+            border-color: #4e73c9;
         }
 
         .note-card h3 {
-            margin-top: 0;
-            font-size: 21px;
+            margin-bottom: 10px;
+            font-size: 20px;
         }
 
         .note-card p {
-            color: #666;
-            line-height: 1.5;
-            min-height: 50px;
+            color: #aab5d0;
+            min-height: 62px;
         }
 
-        /* =========================
-           PDF BUTTONS
-        ========================= */
+        .unit-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 4px 9px;
+            border-radius: 8px;
+            background: #1b2748;
+            color: #9fc0ff;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .download-btn,
+        .view-btn {
+            display: block;
+            text-align: center;
+            padding: 11px;
+            border-radius: 9px;
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.25s;
+        }
 
         .download-btn {
-            display: block;
-
-            text-align: center;
-
-            background: #198754;
-
-            color: white;
-
-            padding: 13px;
-
-            border-radius: 9px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            margin-top: 15px;
-
-            transition: 0.3s;
-        }
-
-        .download-btn:hover {
-            background: #146c43;
-            transform: scale(1.02);
+            background: #168a55;
         }
 
         .view-btn {
-            display: block;
-
-            text-align: center;
-
-            background: #4568dc;
-
-            color: white;
-
-            padding: 11px;
-
-            border-radius: 9px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            margin-top: 10px;
+            background: #3158b8;
         }
 
+        .download-btn:hover,
         .view-btn:hover {
-            background: #243b80;
+            filter: brightness(1.12);
+            transform: translateY(-2px);
         }
 
-        .disabled-btn {
-            display: block;
+        /* =========================
+           YOUTUBE SECTION
+        ========================= */
 
+        .youtube-section {
+            background: #0b1020;
+        }
+
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .youtube-card {
+            background: #141c35;
+            border: 1px solid #29375d;
+            border-radius: 16px;
+            padding: 22px;
             text-align: center;
+            transition: 0.3s;
+        }
 
-            background: #999;
+        .youtube-card:hover {
+            transform: translateY(-5px);
+            border-color: #4e73c9;
+        }
 
+        .youtube-card .yt-icon {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        .youtube-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .youtube-card p {
+            color: #aab5d0;
+            margin-bottom: 16px;
+        }
+
+        .youtube-btn {
+            display: block;
+            background: #e62117;
             color: white;
-
             padding: 12px;
-
             border-radius: 9px;
-
             font-weight: bold;
+        }
 
-            margin-top: 10px;
-
-            cursor: not-allowed;
+        .youtube-btn:hover {
+            background: #ff3026;
         }
 
         /* =========================
            SCHEDULE
         ========================= */
 
-        .schedule {
-            margin-top: 30px;
-        }
-
         .schedule-table {
             width: 100%;
-
             border-collapse: collapse;
-
-            background: white;
-
-            border-radius: 12px;
-
+            background: #141c35;
+            border: 1px solid #29375d;
+            border-radius: 14px;
             overflow: hidden;
-
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.22);
         }
 
         .schedule-table th,
         .schedule-table td {
             padding: 15px;
-
-            border-bottom: 1px solid #eee;
-
+            border-bottom: 1px solid #29324d;
             text-align: center;
         }
 
         .schedule-table th {
-            background: #243b80;
+            background: #263d7d;
             color: white;
+        }
+
+        .schedule-table td {
+            color: #cbd5ee;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .live-status {
+            color: #ff6b78;
+            font-weight: bold;
         }
 
         /* =========================
@@ -371,30 +393,46 @@
         ========================= */
 
         footer {
-            margin-top: 50px;
-
-            background: #243b80;
-
-            color: white;
-
+            background: #070b17;
+            color: #aab5d0;
             text-align: center;
+            padding: 32px 20px;
+            border-top: 1px solid #202c4b;
+        }
 
-            padding: 30px;
+        footer strong {
+            color: #e7edff;
         }
 
         /* =========================
            MOBILE
         ========================= */
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
+            header {
+                padding: 40px 16px;
+            }
 
             header h1 {
-                font-size: 28px;
+                font-size: 29px;
+            }
+
+            header p {
+                font-size: 15px;
             }
 
             nav a {
-                display: inline-block;
-                margin: 6px 8px;
+                margin: 3px;
+                padding: 7px 8px;
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 45px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 25px;
             }
 
             .buttons {
@@ -406,7 +444,7 @@
             }
 
             .schedule-table {
-                font-size: 13px;
+                font-size: 12px;
             }
 
             .schedule-table th,
@@ -424,13 +462,9 @@
     ========================= -->
 
     <header>
-
         <h1>🎓 My Online Classes</h1>
-
-        <p>
-            Learn Anywhere • Attend Live Classes • Download Notes
-        </p>
-
+        <p>Learn Anywhere • Attend Live Classes • Download Notes</p>
+        <div class="header-badge">🌙 Dark Theme • 📱 Mobile Friendly • 💻 Desktop Friendly</div>
     </header>
 
 
@@ -439,13 +473,10 @@
     ========================= -->
 
     <nav>
-
         <a href="#classes">🎥 Live Classes</a>
-
         <a href="#notes">📚 Notes</a>
-
+        <a href="#videos">▶ Subject Videos</a>
         <a href="#schedule">📅 Schedule</a>
-
     </nav>
 
 
@@ -456,441 +487,444 @@
     <div class="container" id="classes">
 
         <div class="section-title">
-
             <h2>🎥 Live Classes</h2>
-
-            <p>
-                Click "Join Live Class" to attend your class from anywhere.
-            </p>
-
+            <p>Join your class, open notes, or find recorded videos for the same subject.</p>
         </div>
-
 
         <div class="classes">
 
-
-            <!-- =========================
-                 AI
-            ========================= -->
-
+            <!-- AI -->
             <div class="class-card">
-
                 <div class="class-icon">🤖</div>
-
                 <span class="subject">AI</span>
-
                 <h3>Artificial Intelligence</h3>
-
                 <p>
-                    Learn AI concepts, search algorithms,
-                    knowledge representation and machine learning.
+                    Learn AI concepts, search algorithms, knowledge representation
+                    and machine learning.
                 </p>
 
                 <div class="class-info">
-
-                    <div class="info-row">
-                        📅 Monday
-                    </div>
-
-                    <div class="info-row">
-                        ⏰ 10:00 AM
-                    </div>
-
-                    <div class="info-row">
-                        👩‍🏫 Faculty: Dr. Sameena
-                    </div>
-
+                    <div class="info-row">📅 Monday</div>
+                    <div class="info-row">⏰ 10:00 AM</div>
+                    <div class="info-row">👩‍🏫 Faculty: Dr. Sameena</div>
                 </div>
-
 
                 <div class="buttons">
-
-                    <!-- Replace with your actual Google Meet link -->
-                    <a
-                        href="https://meet.google.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn live-btn">
-
+                    <a href="https://meet.google.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn live-btn">
                         🔴 Join Live Class
-
                     </a>
 
-
-                    <!-- FIXED AI PDF LINK -->
-                    <a
-                        href="unit%201%20ai.pdf"
-                        download="AI-Unit-1.pdf"
-                        class="btn notes-btn">
-
-                        📥 Download Notes
-
+                    <a href="#notes"
+                       class="btn notes-btn">
+                        📚 View Notes
                     </a>
 
-
-                    <a
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn record-btn">
-
-                        ▶ Recorded
-
+                    <!-- Opens AI YouTube search, NOT the user's account -->
+                    <a href="https://www.youtube.com/results?search_query=Artificial+Intelligence+lecture+for+engineering+students"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn record-btn">
+                        ▶ AI Videos
                     </a>
-
                 </div>
-
             </div>
 
 
-            <!-- =========================
-                 NLP
-            ========================= -->
-
+            <!-- NLP -->
             <div class="class-card">
-
                 <div class="class-icon">💻</div>
-
                 <span class="subject">NLP</span>
-
                 <h3>Natural Language Processing</h3>
-
                 <p>
-                    Learn text preprocessing, TF-IDF,
-                    sentiment analysis and language models.
+                    Learn text preprocessing, TF-IDF, sentiment analysis
+                    and language models.
                 </p>
 
                 <div class="class-info">
-
-                    <div class="info-row">
-                        📅 Tuesday
-                    </div>
-
-                    <div class="info-row">
-                        ⏰ 11:00 AM
-                    </div>
-
-                    <div class="info-row">
-                        👩‍🏫 Faculty: Dr. Sameena
-                    </div>
-
+                    <div class="info-row">📅 Tuesday</div>
+                    <div class="info-row">⏰ 11:00 AM</div>
+                    <div class="info-row">👩‍🏫 Faculty: Dr. Sameena</div>
                 </div>
-
 
                 <div class="buttons">
-
-                    <a
-                        href="https://meet.google.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn live-btn">
-
+                    <a href="https://meet.google.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn live-btn">
                         🔴 Join Live Class
-
                     </a>
 
-
-                    <a
-                        href="#notes"
-                        class="btn notes-btn">
-
+                    <a href="#notes"
+                       class="btn notes-btn">
                         📚 View Notes
-
                     </a>
 
-
-                    <a
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn record-btn">
-
-                        ▶ Recorded
-
+                    <a href="https://www.youtube.com/results?search_query=Natural+Language+Processing+NLP+lecture+for+engineering+students"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn record-btn">
+                        ▶ NLP Videos
                     </a>
-
                 </div>
-
             </div>
 
 
-            <!-- =========================
-                 VLSI
-            ========================= -->
-
+            <!-- VLSI -->
             <div class="class-card">
-
                 <div class="class-icon">🔬</div>
-
                 <span class="subject">VLSI</span>
-
                 <h3>VLSI Design</h3>
-
                 <p>
-                    Learn digital VLSI design,
-                    floorplanning and optimization techniques.
+                    Learn digital VLSI design, floorplanning and
+                    optimization techniques.
                 </p>
 
                 <div class="class-info">
-
-                    <div class="info-row">
-                        📅 Wednesday
-                    </div>
-
-                    <div class="info-row">
-                        ⏰ 2:00 PM
-                    </div>
-
-                    <div class="info-row">
-                        👩‍🏫 Faculty: Dr. Sameena
-                    </div>
-
+                    <div class="info-row">📅 Wednesday</div>
+                    <div class="info-row">⏰ 2:00 PM</div>
+                    <div class="info-row">👩‍🏫 Faculty: Dr. Sameena</div>
                 </div>
-
 
                 <div class="buttons">
-
-                    <a
-                        href="https://meet.google.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn live-btn">
-
+                    <a href="https://meet.google.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn live-btn">
                         🔴 Join Live Class
-
                     </a>
 
-
-                    <a
-                        href="#notes"
-                        class="btn notes-btn">
-
+                    <a href="#notes"
+                       class="btn notes-btn">
                         📚 View Notes
-
                     </a>
 
-
-                    <a
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn record-btn">
-
-                        ▶ Recorded
-
+                    <a href="https://www.youtube.com/results?search_query=VLSI+Design+lecture+for+engineering+students"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn record-btn">
+                        ▶ VLSI Videos
                     </a>
-
                 </div>
-
             </div>
 
 
-            <!-- =========================
-                 DIGITAL ELECTRONICS
-            ========================= -->
-
+            <!-- DIGITAL ELECTRONICS -->
             <div class="class-card">
-
                 <div class="class-icon">📡</div>
-
                 <span class="subject">ECE</span>
-
                 <h3>Digital Electronics</h3>
-
                 <p>
-                    Learn digital circuits, logic gates,
-                    flip-flops, counters and registers.
+                    Learn digital circuits, logic gates, flip-flops,
+                    counters and registers.
                 </p>
 
                 <div class="class-info">
-
-                    <div class="info-row">
-                        📅 Thursday
-                    </div>
-
-                    <div class="info-row">
-                        ⏰ 10:00 AM
-                    </div>
-
-                    <div class="info-row">
-                        👩‍🏫 Faculty: Dr. Sameena
-                    </div>
-
+                    <div class="info-row">📅 Thursday</div>
+                    <div class="info-row">⏰ 10:00 AM</div>
+                    <div class="info-row">👩‍🏫 Faculty: Dr. Sameena</div>
                 </div>
-
 
                 <div class="buttons">
-
-                    <a
-                        href="https://meet.google.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn live-btn">
-
+                    <a href="https://meet.google.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn live-btn">
                         🔴 Join Live Class
-
                     </a>
 
-
-                    <a
-                        href="#notes"
-                        class="btn notes-btn">
-
+                    <a href="#notes"
+                       class="btn notes-btn">
                         📚 View Notes
-
                     </a>
 
-
-                    <a
-                        href="https://www.youtube.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn record-btn">
-
-                        ▶ Recorded
-
+                    <a href="https://www.youtube.com/results?search_query=Digital+Electronics+lecture+for+engineering+students"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn record-btn">
+                        ▶ Digital Videos
                     </a>
-
                 </div>
-
             </div>
 
         </div>
-
     </div>
 
 
     <!-- =========================
-         DOWNLOAD NOTES
+         NOTES
     ========================= -->
 
     <div class="container notes-section" id="notes">
 
         <div class="section-title">
-
             <h2>📚 Download Class Notes</h2>
-
-            <p>
-                Students can view and download lecture notes
-                and study materials.
-            </p>
-
+            <p>View or download the PDF study material available in the GitHub repository.</p>
         </div>
-
 
         <div class="notes-grid">
 
-
-            <!-- =========================
-                 AI NOTES
-            ========================= -->
-
+            <!-- AI UNIT 1 -->
             <div class="note-card">
-
+                <span class="unit-label">ARTIFICIAL INTELLIGENCE</span>
                 <h3>🤖 AI Unit 1</h3>
-
                 <p>
-                    Introduction to Artificial Intelligence,
-                    agents and problem solving.
+                    Introduction to Artificial Intelligence, agents and problem solving.
                 </p>
 
-
-                <!-- FIXED -->
-                <a
-                    href="unit%201%20ai.pdf"
-                    download="AI-Unit-1.pdf"
-                    class="download-btn">
-
-                    📥 Download AI PDF
-
+                <a href="unit%201%20ai.pdf"
+                   download="AI-Unit-1.pdf"
+                   class="download-btn">
+                    📥 Download PDF
                 </a>
 
-
-                <!-- FIXED -->
-                <a
-                    href="unit%201%20ai.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="view-btn">
-
+                <a href="unit%201%20ai.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="view-btn">
                     👁️ View PDF
+                </a>
+            </div>
 
+
+            <!-- AI UNIT 2 -->
+            <div class="note-card">
+                <span class="unit-label">ARTIFICIAL INTELLIGENCE</span>
+                <h3>🤖 AI Unit 2</h3>
+                <p>
+                    Artificial Intelligence Unit 2 study material.
+                </p>
+
+                <a href="UNIT%202%20ai%20%282%29_merged.pdf"
+                   download="AI-Unit-2.pdf"
+                   class="download-btn">
+                    📥 Download PDF
                 </a>
 
+                <a href="UNIT%202%20ai%20%282%29_merged.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="view-btn">
+                    👁️ View PDF
+                </a>
             </div>
 
 
-            <!-- =========================
-                 NLP NOTES
-            ========================= -->
-
+            <!-- AI UNIT 3 -->
             <div class="note-card">
+                <span class="unit-label">ARTIFICIAL INTELLIGENCE</span>
+                <h3>🤖 AI Unit 3</h3>
+                <p>
+                    Artificial Intelligence Unit 3 study material.
+                </p>
 
+                <a href="unit%203%20ai.pdf"
+                   download="AI-Unit-3.pdf"
+                   class="download-btn">
+                    📥 Download PDF
+                </a>
+
+                <a href="unit%203%20ai.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="view-btn">
+                    👁️ View PDF
+                </a>
+            </div>
+
+
+            <!-- NLP UNIT 1 -->
+            <div class="note-card">
+                <span class="unit-label">NATURAL LANGUAGE PROCESSING</span>
                 <h3>💻 NLP Unit 1</h3>
-
                 <p>
-                    Introduction to NLP, text preprocessing
-                    and language processing.
+                    Introduction to NLP, text preprocessing and language processing.
                 </p>
 
+                <a href="unit%201%20nlp.pdf"
+                   download="NLP-Unit-1.pdf"
+                   class="download-btn">
+                    📥 Download PDF
+                </a>
 
-                <!-- Add nlp-unit-1.pdf to your repository
-                     before changing this button to a PDF link. -->
-
-                <div class="disabled-btn">
-                    📥 NLP PDF Coming Soon
-                </div>
-
+                <a href="unit%201%20nlp.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="view-btn">
+                    👁️ View PDF
+                </a>
             </div>
 
 
-            <!-- =========================
-                 VLSI NOTES
-            ========================= -->
-
+            <!-- NLP UNIT 2 -->
             <div class="note-card">
-
-                <h3>🔬 VLSI Unit 1</h3>
-
+                <span class="unit-label">NATURAL LANGUAGE PROCESSING</span>
+                <h3>💻 NLP Unit 2</h3>
                 <p>
-                    Introduction to VLSI design and
-                    floorplanning concepts.
+                    Natural Language Processing Unit 2 study material.
                 </p>
 
+                <a href="unit%202%20nlp.pdf"
+                   download="NLP-Unit-2.pdf"
+                   class="download-btn">
+                    📥 Download PDF
+                </a>
 
-                <!-- Add vlsi-unit-1.pdf to your repository -->
-
-                <div class="disabled-btn">
-                    📥 VLSI PDF Coming Soon
-                </div>
-
+                <a href="unit%202%20nlp.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="view-btn">
+                    👁️ View PDF
+                </a>
             </div>
 
 
-            <!-- =========================
-                 DIGITAL ELECTRONICS
-            ========================= -->
-
+            <!-- NLP UNITS 3,4,5 -->
             <div class="note-card">
+                <span class="unit-label">NATURAL LANGUAGE PROCESSING</span>
+                <h3>💻 NLP Units 3, 4 & 5</h3>
+                <p>
+                    Combined PDF containing NLP Units 3, 4 and 5.
+                </p>
 
+                <a href="3%2C4%2C5%20nlp.pdf"
+                   download="NLP-Units-3-4-5.pdf"
+                   class="download-btn">
+                    📥 Download PDF
+                </a>
+
+                <a href="3%2C4%2C5%20nlp.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="view-btn">
+                    👁️ View PDF
+                </a>
+            </div>
+
+
+            <!-- NLP EXTRA -->
+            <div class="note-card">
+                <span class="unit-label">NLP EXTRA MATERIAL</span>
+                <h3>📝 Text Classification</h3>
+                <p>
+                    Additional study material about text classification in NLP.
+                </p>
+
+                <a href="What%20is%20Text%20Classification.pdf"
+                   download="What-is-Text-Classification.pdf"
+                   class="download-btn">
+                    📥 Download PDF
+                </a>
+
+                <a href="What%20is%20Text%20Classification.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="view-btn">
+                    👁️ View PDF
+                </a>
+            </div>
+
+
+            <!-- VLSI -->
+            <div class="note-card">
+                <span class="unit-label">VLSI DESIGN</span>
+                <h3>🔬 VLSI Notes</h3>
+                <p>
+                    VLSI notes will appear here when the corresponding
+                    PDF is uploaded to GitHub.
+                </p>
+
+                <div class="view-btn" style="opacity:0.55; cursor:not-allowed;">
+                    📥 PDF Coming Soon
+                </div>
+            </div>
+
+
+            <!-- DIGITAL ELECTRONICS -->
+            <div class="note-card">
+                <span class="unit-label">DIGITAL ELECTRONICS</span>
                 <h3>📡 Digital Electronics</h3>
-
                 <p>
-                    Logic gates, Boolean algebra,
-                    flip-flops and counters.
+                    Digital Electronics notes will appear here when the
+                    corresponding PDF is uploaded to GitHub.
                 </p>
 
-
-                <!-- Add digital-electronics.pdf to your repository -->
-
-                <div class="disabled-btn">
-                    📥 Digital Electronics PDF Coming Soon
+                <div class="view-btn" style="opacity:0.55; cursor:not-allowed;">
+                    📥 PDF Coming Soon
                 </div>
-
             </div>
 
         </div>
+    </div>
 
+
+    <!-- =========================
+         SUBJECT YOUTUBE VIDEOS
+    ========================= -->
+
+    <div class="container youtube-section" id="videos">
+
+        <div class="section-title">
+            <h2>▶ Subject Videos</h2>
+            <p>
+                Each button opens YouTube search results for that subject,
+                not your personal YouTube account.
+            </p>
+        </div>
+
+        <div class="youtube-grid">
+
+            <div class="youtube-card">
+                <div class="yt-icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+                <p>Lectures, tutorials and exam preparation videos.</p>
+                <a class="youtube-btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   href="https://www.youtube.com/results?search_query=Artificial+Intelligence+lecture+for+engineering+students">
+                    ▶ Watch AI Videos
+                </a>
+            </div>
+
+            <div class="youtube-card">
+                <div class="yt-icon">💻</div>
+                <h3>Natural Language Processing</h3>
+                <p>NLP lectures, preprocessing, TF-IDF and language models.</p>
+                <a class="youtube-btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   href="https://www.youtube.com/results?search_query=Natural+Language+Processing+NLP+lecture+for+engineering+students">
+                    ▶ Watch NLP Videos
+                </a>
+            </div>
+
+            <div class="youtube-card">
+                <div class="yt-icon">🔬</div>
+                <h3>VLSI Design</h3>
+                <p>VLSI design, CMOS, layout and digital VLSI lectures.</p>
+                <a class="youtube-btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   href="https://www.youtube.com/results?search_query=VLSI+Design+lecture+for+engineering+students">
+                    ▶ Watch VLSI Videos
+                </a>
+            </div>
+
+            <div class="youtube-card">
+                <div class="yt-icon">📡</div>
+                <h3>Digital Electronics</h3>
+                <p>Logic gates, flip-flops, counters and digital circuits.</p>
+                <a class="youtube-btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   href="https://www.youtube.com/results?search_query=Digital+Electronics+lecture+for+engineering+students">
+                    ▶ Watch Digital Videos
+                </a>
+            </div>
+
+        </div>
     </div>
 
 
@@ -898,95 +932,56 @@
          SCHEDULE
     ========================= -->
 
-    <div class="container schedule" id="schedule">
+    <div class="container" id="schedule">
 
         <div class="section-title">
-
             <h2>📅 Class Schedule</h2>
-
-            <p>
-                Weekly online class timetable.
-            </p>
-
+            <p>Weekly online class timetable.</p>
         </div>
-
 
         <table class="schedule-table">
 
             <thead>
-
                 <tr>
-
                     <th>Day</th>
-
                     <th>Subject</th>
-
                     <th>Time</th>
-
                     <th>Class</th>
-
                 </tr>
-
             </thead>
-
 
             <tbody>
 
                 <tr>
-
                     <td>Monday</td>
-
                     <td>Artificial Intelligence</td>
-
                     <td>10:00 AM</td>
-
-                    <td>🔴 Live</td>
-
+                    <td class="live-status">🔴 Live</td>
                 </tr>
 
-
                 <tr>
-
                     <td>Tuesday</td>
-
                     <td>NLP</td>
-
                     <td>11:00 AM</td>
-
-                    <td>🔴 Live</td>
-
+                    <td class="live-status">🔴 Live</td>
                 </tr>
 
-
                 <tr>
-
                     <td>Wednesday</td>
-
                     <td>VLSI</td>
-
                     <td>2:00 PM</td>
-
-                    <td>🔴 Live</td>
-
+                    <td class="live-status">🔴 Live</td>
                 </tr>
 
-
                 <tr>
-
                     <td>Thursday</td>
-
                     <td>Digital Electronics</td>
-
                     <td>10:00 AM</td>
-
-                    <td>🔴 Live</td>
-
+                    <td class="live-status">🔴 Live</td>
                 </tr>
 
             </tbody>
-
         </table>
-
     </div>
 
 
@@ -995,17 +990,10 @@
     ========================= -->
 
     <footer>
-
-        <p>
-            © 2026 My Online Classes
-        </p>
-
-        <p>
-            Learn Anywhere • Learn Anytime
-        </p>
-
+        <p><strong>🎓 My Online Classes</strong></p>
+        <p>Learn Anywhere • Learn Anytime</p>
+        <p>© 2026 My Online Classes</p>
     </footer>
 
 </body>
-
 </html>
